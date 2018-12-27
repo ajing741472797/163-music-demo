@@ -11,6 +11,7 @@
             let {songs, selectedSongId} = data
             let liList = songs.map((song)=>{
                let $li = $('<li></li>').text(song.name).attr('data-song-id', song.id)
+
                 if(song.id === selectedSongId){$li.addClass('active')}
                return $li
             })
@@ -76,6 +77,7 @@
             window.eventHub.on('create',(data)=>{
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
+                
             })
             window.eventHub.on('new',(data)=>{
                 this.view.clearActive()
