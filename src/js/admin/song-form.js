@@ -1,7 +1,7 @@
 {
     let view = {
         el: '.page > main',
-        init(){
+        init() {
             this.$el = $(this.el)
         },
         template: `
@@ -24,39 +24,54 @@
                 </label>
                 <input name="url" type="text" value="__url__">
             </div>
+            <div class="row">
+                <label>
+                    封面
+                </label>
+                <input name="cover" type="text" value="__cover__">
+            </div>
+            <div class="row">
+                <label>
+                    歌词
+                </label>
+                <textarea cols=100 rows=10 name="lyrics">__lyrics__</textarea>
+            </div>
             <div class="row actions">
                     <button type="submit">保存</button>
             </div>
         </form>
         `,
-        render(data = {}){
-            let placeholders = ['name','singer','url','id']
+        render(data = {}) {
+            let placeholders = ['name', 'singer', 'url', 'id', 'cover', 'lyrics']
             let html = this.template
-            placeholders.map((string)=>{
-                html = html.replace(`__${string}__`,data[string] || '')
+            placeholders.map((string) => {
+                html = html.replace(`__${string}__`, data[string] || '')
             })
             $(this.el).html(html)
-            if(data.id){
+            if (data.id) {
                 $(this.el).prepend('<h1>编辑歌曲</h1>')
-            }else
+            } else
                 $(this.el).prepend('<h1>新建歌曲</h1>')
         },
-        reset(){
+        reset() {
             this.render({})
         }
     }
 
     let model = {
         data: {
-            name: '', singer: '', url: '', id: ''
+            name: '', singer: '', url: '', id: '', cover: '', lyrics: ''
         },
-        update(data){
+        update(data) {
             var song = AV.Object.createWithoutData('Song', this.data.id)
             // 修改属性
-            song.set('name',data.name)
-            song.set('singer',data.singer)
-            song.set('url',data.url)
-            return song.save().then((response)=>{
+            song.set('name', data.name)
+            song.set('singer', data.singer)
+            song.set('lyrics', data.lyrics)
+            song.set('url', data.url)
+            song.set('cover', data.cover)
+
+            return song.save().then((response) => {
                 Object.assign(this.data, data)
                 return response
             })
@@ -69,76 +84,79 @@
             // 设置名称
             song.set('name', data.name);
             song.set('singer', data.singer);
+            song.set('lyrics', data.lyrics);
             song.set('url', data.url);
-            return song.save().then((newSong)=> {
-                let {id, attributes} = newSong
-                Object.assign(this.data, {id, ...attributes})
-            }, (error)=> {
+            song.set('cover', data.cover);
+
+            return song.save().then((newSong) => {
+                let { id, attributes } = newSong
+                Object.assign(this.data, { id, ...attributes })
+            }, (error) => {
                 console.error(error);
             });
         }
     }
     let controller = {
-        init(view, model){
+        init(view, model) {
             this.view = view
             this.view.init()
             this.model = model
             this.view.render(this.model.data)
             this.bindEvents()
-           
-            window.eventHub.on('select',(data)=>{
+
+            window.eventHub.on('select', (data) => {
                 this.model.data = data
                 this.view.render(this.model.data)
             })
-            window.eventHub.on('new',(data)=>{
-                    if(this.model.data.id){
-                        this.model.data = {
-                        name: '', url:'', id:'', singer:''
-                        }
-                    }else{
-                        Object.assign(this.model.data,data)
+            window.eventHub.on('new', (data) => {
+                if (this.model.data.id) {
+                    this.model.data = {
+                        name: '', url: '', id: '', singer: '', lyrics: ''
                     }
+                } else {
+                    Object.assign(this.model.data, data)
+                }
                 this.view.render(this.model.data)
             })
         },
-        create(){
-            let needs = 'name singer url'.split(' ')
+        create() {
+            let needs = 'name singer url cover lyrics'.split(' ')
             let data = {}
-            needs.map((string)=>{
-                data[string]=
-                this.view.$el.find(`[name="${string}"]`).val()
+            needs.map((string) => {
+                data[string] =
+                    this.view.$el.find(`[name="${string}"]`).val()
             })
             this.model.create(data)
-            .then(()=>{
-                this.view.reset()
+                .then(() => {
+                    this.view.reset()
 
-                //深拷贝
-                let string = JSON.stringify(this.model.data)
-                let object = JSON.parse(string)
-                window.eventHub.emit('create', object)
-            })
+                    //深拷贝
+                    let string = JSON.stringify(this.model.data)
+                    let object = JSON.parse(string)
+                    window.eventHub.emit('create', object)
+                })
         },
         update() {
-            let needs = 'name singer url'.split(' ')
+            let needs = 'name singer url cover lyrics'.split(' ')
             let data = {}
-            needs.map((string)=>{
+            needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
             })
-           this.model.update(data)
-           .then(()=>{
-               window.eventHub.emit('update',JSON.parse(JSON.stringify(this.model.data)))
-           })
+            this.model.update(data)
+                .then(() => {
+                    window.eventHub.emit('update', JSON.parse(JSON.stringify(this.model.data)))
+                })
         },
-        bindEvents(){
-            this.view.$el.on('submit', 'form', (e)=>{
+        bindEvents() {
+            this.view.$el.on('submit', 'form', (e) => {
                 e.preventDefault()
 
-                if(this.model.data.id){
+                if (this.model.data.id) {
                     this.update()
-                }else{
+                } else {
                     this.create()
                 }
-               
+
             })
         }
     }
