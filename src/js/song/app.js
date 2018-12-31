@@ -37,7 +37,7 @@
                     let newTime = parseInt(minutes,10) * 60 + parseFloat(seconds,10)
                     p.setAttribute('data-time', newTime)
                 }else{
-                    p.textContent = null
+                    p.textContent = ''
                 }
                 this.$el.find('.lyric>.lines').append(p)
             })
@@ -45,14 +45,25 @@
         },
         showLyric(time){
             let allP = this.$el.find('.lyric>.lines>p')
+            
             for(let i =0;i<allP.length;i++){
                 if(i === allP.length-1){
                     console.log(allP[i])
+                    break
                 }else{
                     let currentTime = allP.eq(i).attr('data-time')
                 let nextTime = allP.eq(i+1).attr('data-time')
                 if(currentTime <= time && time < nextTime){
-                    console.log(allP[i])
+                    let p = allP[i]
+                    let pHeight = p.getBoundingClientRect().top
+                    let linesHeight = this.$el.find('.lyric>.lines')[0].getBoundingClientRect().top
+                    let height = pHeight - linesHeight
+                    this.$el.find('.lyric>.lines').css({
+                        transform: `translateY(${- (height - 25)}px)`
+                    })
+                    $(p).addClass('active').siblings('.active').removeClass('active')
+
+
                     break
                 }
                 }
