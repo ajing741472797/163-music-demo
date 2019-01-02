@@ -40,7 +40,7 @@
             var query = new AV.Query('Song');
             return query.find().then((songs)=>{
                 this.data.songs = songs.map((song)=>{
-                    return {id: song.id, ...song.attributes} // ...表示song.attributes有什么我就要什么
+                    return Object.assign({id: song.id}, song.attributes) // ...表示song.attributes有什么我就要什么
                 })
                 return songs
             })
