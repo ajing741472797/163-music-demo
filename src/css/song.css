@@ -7,7 +7,7 @@
 }
 
 .page{display: flex; flex-direction: column; height: 100vh;
-	background: transparent url(http://p4.music.126.net/bLOjq_mIEyrQSt2TpKnuCA==/16618018742215339.jpg) center center; 
+	background: transparent url(http://p4.music.126.net/bLOjq_mIEyrQSt2TpKnuCA==/16618018742215339.jpg) center center no-repeat; 
 	background-size: cover;
 }
 
@@ -46,23 +46,21 @@
 }
 .song-description h1{
 	color: white;
-	font-size: 18px;
+	font-size: 28px;
 }
 .song-description p{
-	font-size: 14px;
-	line-height: 24px;
+	font-size: 18px;
+	line-height: 33px;
 }
 .song-description .lines{
 	transition: transform 0.3s;
 }
 .song-description .lyric{
-	height: 72px;
+	margin-top: 10px;
+	height: 92px;
 	overflow: hidden;
 }
-.song-description .lyric.lines>p{
-	font-size:15px;
-    line-height:8.6vw;
-}
+
 
 .song-description p.active{
 	color: white;
