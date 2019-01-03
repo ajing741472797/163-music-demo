@@ -7,7 +7,7 @@
 }
 
 .page{display: flex; flex-direction: column; height: 100vh;
-	background: transparent url(#) center center; 
+	background: transparent url(http://p4.music.126.net/bLOjq_mIEyrQSt2TpKnuCA==/16618018742215339.jpg) center center; 
 	background-size: cover;
 }
 
@@ -59,6 +59,11 @@
 	height: 72px;
 	overflow: hidden;
 }
+.song-description .lyric.lines>p{
+	font-size:15px;
+    line-height:8.6vw;
+}
+
 .song-description p.active{
 	color: white;
 }
