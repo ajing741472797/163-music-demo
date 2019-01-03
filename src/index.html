@@ -159,12 +159,17 @@
             </li>
         </ol>
     </div>
-    <script src="../vendors/vconsole.min.js"></script>
+    <!-- <script src="../vendors/vconsole.min.js"></script>
 		<script>
-            var vConsole = new VConsole();
-            console.log('hello')
-		</script>
-   
+            var vConsole = new VConsole();// init VConsole
+            
+            window.onerror = function(message, file, row){
+                console.log(message)
+                console.log(file)
+                console.log(row)
+            }
+		</script>// 移动端调试
+    -->
     <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
     <script src="../vendors/av-min.js"></script>
     <script src="./js/initializers/av.js"></script>

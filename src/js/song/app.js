@@ -8,8 +8,6 @@
             
             let {song, status} = data
             this.$el.css('background-image', `url(${song.background})`)
-            
-
             this.$el.find('img.cover').attr('src',song.cover)
             if(this.$el.find('audio').attr('src') !== song.url){
                let audio =  this.$el.find('audio').attr('src',song.url).get(0)
@@ -22,11 +20,11 @@
             }
             if(status === 'playing'){
              this.$el.find('.disc-container').addClass('playing')
-             this.$el.find('.disc-container .pointer').addClass('active')
+             this.$el.find('.disc-container .pointer').removeClass('active')
 
             }else{
              this.$el.find('.disc-container').removeClass('playing')
-             this.$el.find('.disc-container .pointer').removeClass('active')
+             this.$el.find('.disc-container .pointer').addClass('active')
             }
             
             this.$el.find('.song-description>h1').text(song.name + "-" + song.singer)
@@ -93,16 +91,21 @@
             singer: '',
             url: ''
            } ,
-           status: 'paused'
+           status: 'pause'
         },
         get(id) {
             var query = new AV.Query('Song')
             return query.get(id).then((song)=>{
-                Object.assign(this.data.song, {id: song.id, ...song.attributes}) 
+                // Object.assign(this.data.song, {id: song.id, ...song.attributes}) 
+                      Object.assign(this.data.song, ({id: song.id}, song.attributes)) // ...表示song.attributes有什么我就要什么
+            
+                console.log('song') 
+                console.log(song)    
                 return song
             })
+            
         }
-
+        
     }
     let controller = {
         init(view, model) {
@@ -117,18 +120,18 @@
         },
         bindEvents(){
             $(this.view.el).on('click','.icon-play',()=>{
-                this.model.data.status = 'pause'
+                this.model.data.status = 'playing'
                 this.view.render(this.model.data)
                 this.view.play()
             })
             $(this.view.el).on('click','.icon-pause',()=>{
-                this.model.data.status = 'playing'
+                this.model.data.status = 'pause'
                 this.view.render(this.model.data)
                 this.view.pause()
             })
           
             window.eventHub.on('songEnd', ()=>{
-                this.model.data.status = 'paused'
+                this.model.data.status = 'playing'
                 this.view.render(this.model.data)
             })
         },

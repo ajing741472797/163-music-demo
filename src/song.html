@@ -13,7 +13,7 @@
 
 <body>
     <div class="page" id="app">
-		<audio autoplay src="#"></audio>
+		<audio src="#"></audio>
 		<div class="disc-container">
 			<img class="pointer" src="//s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862 " alt="">
 			<div class="disc">
@@ -47,8 +47,12 @@
 	<script src="../vendors/vconsole.min.js"></script>
 		<script>
 			var vConsole = new VConsole();
+			window.onerror = function(message, file, row){
+                console.log(message)
+                console.log(file)
+				console.log(row)
+			}// 移动端调试
 		</script>
-	<!-- <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script> -->
 	<script src="//at.alicdn.com/t/font_995683_4nkt09h1bzr.js"></script>
     <script src="../vendors/av-min.js"></script>
     <script src="./js/initializers/av.js"></script>

@@ -26,16 +26,16 @@
 .disc-container .light{width: 72vw; position: absolute;animation: circle 20s infinite linear;  }
 .disc-container .cover{width: 44.5vw; position: absolute; border-radius: 50%;  
 	animation: circle 20s infinite linear; 
-  animation-play-state: running;
+  animation-play-state: paused;
 }
 .disc-container.playing .light,
 .disc-container.playing .cover{
-  animation-play-state: paused;
+  animation-play-state:	running;
 }
-.disc-container .icon-play{display: none; }
-.disc-container .icon-pause{display: block; }
-.disc-container.playing .icon-pause{display: none; }
-.disc-container.playing .icon-play{display: block; }
+.disc-container .icon-play{display: block; }
+.disc-container .icon-pause{display: none; }
+.disc-container.playing .icon-pause{display: block; }
+.disc-container.playing .icon-play{display: none; }
 
 .song-description{
 	flex-grow: 1;
@@ -46,18 +46,18 @@
 }
 .song-description h1{
 	color: white;
-	font-size: 28px;
+	font-size: 18px;
 }
 .song-description p{
-	font-size: 18px;
-	line-height: 33px;
+	font-size: 15px;
+	line-height: 28px;
 }
 .song-description .lines{
 	transition: transform 0.3s;
 }
 .song-description .lyric{
-	margin-top: 10px;
-	height: 92px;
+	margin-top: 5px;
+	height: 85px;
 	overflow: hidden;
 }
 
