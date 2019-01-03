@@ -7,7 +7,7 @@
 }
 
 .page{display: flex; flex-direction: column; height: 100vh;
-	background: transparent url(#) no-repeat center; 
+	background: transparent url(#) center center; 
 	background-size: cover;
 }
 
@@ -19,21 +19,23 @@
 }
 .disc-container .icon {width: 10vw; fill: white;}
 .disc-container .pointer{width: 24vw; position: absolute; left: 45vw; }
+.disc-container .pointer.active{width: 24vw; position: absolute; left: 45vw;top:3px;transform-origin:0% 0%; transform: rotate(-30deg); }
+
 .disc-container .disc{display: flex; justify-content: center; align-items: center; margin-top: 18vw; }
 .disc-container .ring{width: 72vw; } 
-.disc-container .light{width: 72vw; position: absolute; }
+.disc-container .light{width: 72vw; position: absolute;animation: circle 20s infinite linear;  }
 .disc-container .cover{width: 44.5vw; position: absolute; border-radius: 50%;  
-  animation: circle 20s infinite linear; 
-  animation-play-state: paused;
+	animation: circle 20s infinite linear; 
+  animation-play-state: running;
 }
 .disc-container.playing .light,
 .disc-container.playing .cover{
-  animation-play-state: running;
+  animation-play-state: paused;
 }
-
-.disc-container .icon-pause{display: none; }
-.disc-container.playing .icon-pause{display: block; }
-.disc-container.playing .icon-play{display: none; }
+.disc-container .icon-play{display: none; }
+.disc-container .icon-pause{display: block; }
+.disc-container.playing .icon-pause{display: none; }
+.disc-container.playing .icon-play{display: block; }
 
 .song-description{
 	flex-grow: 1;

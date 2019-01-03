@@ -19,9 +19,13 @@
             }
             if(status === 'playing'){
              this.$el.find('.disc-container').addClass('playing')
+             this.$el.find('.disc-container .pointer').addClass('active')
+
             }else{
              this.$el.find('.disc-container').removeClass('playing')
+             this.$el.find('.disc-container .pointer').removeClass('active')
             }
+            
             this.$el.find('.song-description>h1').text(song.name + "-" + song.singer)
             let {lyrics} = song
             lyrics.split('\n').map((string)=>{
@@ -75,6 +79,7 @@
         pause(){
             this.$el.find('audio')[0].pause()
         }
+        
   
     }
     let model = {
@@ -109,15 +114,16 @@
         },
         bindEvents(){
             $(this.view.el).on('click','.icon-play',()=>{
-                this.model.data.status = 'playing'
+                this.model.data.status = 'pause'
                 this.view.render(this.model.data)
                 this.view.play()
             })
             $(this.view.el).on('click','.icon-pause',()=>{
-                this.model.data.status = 'paused'
+                this.model.data.status = 'playing'
                 this.view.render(this.model.data)
                 this.view.pause()
             })
+          
             window.eventHub.on('songEnd', ()=>{
                 this.model.data.status = 'paused'
                 this.view.render(this.model.data)
