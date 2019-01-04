@@ -131,7 +131,7 @@
             })
           
             window.eventHub.on('songEnd', ()=>{
-                this.model.data.status = 'playing'
+                this.model.data.status = 'pause'
                 this.view.render(this.model.data)
             })
         },
