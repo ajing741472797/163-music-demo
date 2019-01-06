@@ -8,7 +8,10 @@ a{color: inherit; text-decoration: none;}
 ul,ol{list-style: none;}
 h1,h2,h3,h4,h5,h6{ font-weight: normal; }
 
-B
+
+h2{
+  font-weight: 600;
+}
 body{font:14px/1.5 Helvetica,sans-serif;}
 .icon {
   width: 1em; height: 1em;
@@ -116,14 +119,23 @@ section.topbar > a::after{
   content:'';
   display: table;
 }
-
+.swiper-container {
+  width: 100%;
+  z-index: 0;
+}
+.swiper-slide>img {
+  width: 100%;
+  height: 45.8%;
+}
 section.playlists{
 }
 section.playlists > ol.songs{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 12px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 section.playlists > ol.songs > li{
   width: 32.8%;

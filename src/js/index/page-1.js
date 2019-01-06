@@ -20,6 +20,7 @@
             this.view.init()
             this.model = model
             this.bindEventHub()
+            this.startSwiper()
             this.loadModule1()
             this.loadModule2()
         },
@@ -27,11 +28,34 @@
             window.eventHub.on('selectTab',(tabName)=>{
                 if(tabName === 'page-1'){
                     this.view.show()
+                    this.startSwiper()
                 }else{
                     this.view.hide()
                 }
             })
         },
+        startSwiper(){
+            var mySwiper = new Swiper ('.swiper-container', {
+                // Optional parameters
+                loop: true,
+              
+                // If we need pagination
+                pagination: {
+                  el: '.swiper-pagination',
+                },
+                
+                autoplay: {
+                    delay: 1700,
+                    stopOnLastSlide: false,
+                    disableOnInteraction: false,
+                  },
+                  fadeEffect: {
+                    crossFade: true
+                  },
+            
+              })
+        },
+
         loadModule1(){
             let script1 = document.createElement('script')
             script1.src = './js/index/page-1-1.js' 

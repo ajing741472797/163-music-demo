@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/hotlist.css">
     <title>我的云音乐</title>
@@ -63,44 +64,56 @@
         </div>
         <ol class="tab-content noCollapse">
             <li class="page-1 active">
+                    <section class="swiper-container">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide"><img src="./img/post/1.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/post/2.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/post/3.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/post/4.png" alt=""></div>
+                            </div>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
+                    </section>
                 <section class="playlists">
                     <h2 class="sectionTitle">推荐歌单</h2>
                     <ol class="songs">
                         <li>
                             <div class="cover">
-                                <img width=105 src="https://i.loli.net/2017/08/22/599ba7a0aea8b.jpg" alt="封面">
+                                <img width=105 src="./img/songlist/1.jpg" alt="封面">
                             </div>
-                            <p>两行文字两行文字两行文字两行文字两行文字</p>
+                            <p>新的一年，希望你喜欢的人也喜欢你</p>
                         </li>
                         <li>
                             <div class="cover">
-                                <img src="https://i.loli.net/2017/08/22/599ba7a0aea8b.jpg" alt="封面">
+                                <img src="./img/songlist/2.jpg" alt="封面">
                             </div>
-                            <p>两行文字两行文字两行文字两行文字</p>
+                            <p>“我不是单身，只是在等人”</p>
                         </li>
                         <li>
                             <div class="cover">
-                                <img src="https://i.loli.net/2017/08/22/599ba7a0aea8b.jpg" alt="封面">
+                                <img src="./img/songlist/3.jpg" alt="封面">
                             </div>
-                            <p>两行文字两行文字两行文字两行文字</p>
+                            <p>华语百首丨唱不尽世间遗憾</p>
                         </li>
                         <li>
                             <div class="cover">
-                                <img src="https://i.loli.net/2017/08/22/599ba7a0aea8b.jpg" alt="封面">
+                                <img src="./img/songlist/4.jpg" alt="封面">
                             </div>
-                            <p>两行文字两行文字两行文字两行文字</p>
+                            <p>粤语丨那些令人彻骨深寒的绝笔情歌</p>
                         </li>
                         <li>
                             <div class="cover">
-                                <img src="https://i.loli.net/2017/08/22/599ba7a0aea8b.jpg" alt="封面">
+                                <img src="./img/songlist/5.jpg" alt="封面">
                             </div>
-                            <p>两行文字两行文字两行文字两行文字</p>
+                            <p>「电子·女声」惊艳耳际，一秒倾心❤</p>
                         </li>
                         <li>
                             <div class="cover">
-                                <img src="https://i.loli.net/2017/08/22/599ba7a0aea8b.jpg" alt="封面">
+                                <img src="./img/songlist/6.jpg" alt="封面">
                             </div>
-                            <p>两行文字两行文字两行文字两行文字</p>
+                            <p>【欧美男团】秒杀耳朵系列</p>
                         </li>
                     </ol>
                 </section>
@@ -181,6 +194,7 @@
     <script src="../vendors/jquery.min.js"></script>
     <script src="./js/admin/event-hub.js"></script>
     <script src="./js/index/tabs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
     <script src="./js/index/page-1.js"></script>
     <script src="./js/index/page-2.js"></script>
     <script src="./js/index/page-3.js"></script>
