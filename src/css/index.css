@@ -153,31 +153,37 @@ section.playlists > ol.songs > li p{
 section.playlists > ol.songs > li img{
   width: 100%;
 }
-section.songs{}
 section.songs > .list {
   margin-top: 18px;
 }
 section.songs > .list > li > h3{
-  font-size: 17px;
+  font-size: 16px;
+  margin-left: 10px;
 }
+
 section.songs > .list > li > p{
   font-size: 12px;
   color: #888;
+  margin-left: 10px;
 }
 section.songs > .list > li{
   position: relative;
-  margin-left: 10px;
   padding-bottom: 6px;
   padding-top: 5px;
   border-bottom: 1px solid #E2E2E3;
 }
 section.songs > .list .playButton{
   position: absolute;
-  right:8px;
   top: 50%;
   transform: translateY(-50%);
+  width: 100%;
+  height: 55px;
+
 }
 section.songs > .list .icon-play{
+  position: relative;
+  margin-left: 91%;
+  margin-top: 16.5px;
   width: 22px;
   height: 22px;
   vertical-align: middle;

@@ -28,7 +28,10 @@
             }
             
             this.$el.find('.song-description>h1').text(song.name + "-" + song.singer)
+            console.log(song)
             let {lyrics} = song
+            
+            console.log(lyrics)
             lyrics.split('\n').map((string)=>{
                 let p = document.createElement('p')
                 let regex = /\[([\d:.]+)\](.+)/
@@ -74,6 +77,7 @@
                 }
             }
         },
+        
         play(){
             this.$el.find('audio')[0].play()
         },
@@ -98,9 +102,7 @@
             return query.get(id).then((song)=>{
                 // Object.assign(this.data.song, {id: song.id, ...song.attributes}) 
                       Object.assign(this.data.song, ({id: song.id}, song.attributes)) // ...表示song.attributes有什么我就要什么
-            
-                console.log('song') 
-                console.log(song)    
+             
                 return song
             })
             
