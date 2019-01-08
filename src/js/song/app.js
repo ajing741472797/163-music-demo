@@ -95,7 +95,7 @@
             singer: '',
             url: ''
            } ,
-           status: 'pause'
+           status: 'playing'
         },
         get(id) {
             var query = new AV.Query('Song')
