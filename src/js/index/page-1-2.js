@@ -8,7 +8,7 @@
             <svg class="icon icon-sq">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-sq"></use>
             </svg>
-            {{song.singer}}
+            {{song.singer}} - {{song.album}}
           </p>
           <a class="playButton" href="./song.html?id={{song.id}}">
             <svg class="icon icon-play">
@@ -26,6 +26,7 @@
               let $li = $(this.template
                 .replace('{{song.name}}', song.name)
                 .replace('{{song.singer}}', song.singer)
+                .replace('{{song.album}}', song.album)
                 .replace('{{song.id}}', song.id)
               )
               this.$el.find('ol.list').append($li)
