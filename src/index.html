@@ -178,8 +178,34 @@
                 </div> 
             </li>
             <li class="page-3">
-                <input id="search" type="text" style="background:#EBECEC;">
-                <ol id="searchResult"></ol>
+                <div class="searchContainer">
+                    <img class="searchIcon"src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljOWNhIiBkPSJNMjUuMTgxLDIzLjUzNWwtMS40MTQsMS40MTRsLTcuMzE1LTcuMzE0CgkJQzE0LjcwOSwxOS4xMDcsMTIuNDYsMjAsMTAsMjBDNC40NzcsMjAsMCwxNS41MjMsMCwxMEMwLDQuNDc3LDQuNDc3LDAsMTAsMGM1LjUyMywwLDEwLDQuNDc3LDEwLDEwYzAsMi4zNDItMC44MTEsNC40OS0yLjE2LDYuMTk1CgkJTDI1LjE4MSwyMy41MzV6IE0xMCwyYy00LjQxOCwwLTgsMy41ODItOCw4czMuNTgyLDgsOCw4YzQuNDE4LDAsOC0zLjU4Miw4LThTMTQuNDE4LDIsMTAsMnoiLz48L3N2Zz4=" alt="">
+                    <input type="search" placeholder="搜索歌曲、歌手" >
+                    <img class="deleteIcon"src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOCAyOCI+PGcgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjYmNiZGJkIiBkPSJNMTQsMGM3LjczMiwwLDE0LDYuMjY4LDE0LDE0YzAsNy43MzItNi4yNjgsMTQtMTQsMTQKCVMwLDIxLjczMiwwLDE0QzAsNi4yNjgsNi4yNjgsMCwxNCwweiIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ViZWNlYiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCI+PHBhdGggZD0ibTE5IDlsLTEwIDEwIi8+PHBhdGggZD0ibTkgOWwxMCAxMCIvPjwvZz48L2c+PC9zdmc+" alt="">
+                </div>
+                <div class="hotSearch">
+                    <p>热门搜索</p>
+                    <div class="hotSong">
+                        <a href="http://m2.21cntx.com/c/year2018/lNAjl/?uid=09016CAAAF1F97EB5F503AD958F60AB4&full_screen=true&keep_status_bar=true&status_bar_type=dark&userid=308302182"><span>我的2018年度听歌报告
+                            <svg class="icon icon-play" style="width:15px;height:15px;">
+                                        <use xlink:href="#icon-custom-hot-copy"></use>
+                                    </svg></span></a>
+                        <a href="./song.html?id=5b1e6b899f5454003a720717"><span>离人</span></a>
+                        <a href="./song.html?id=5b1aa5ccd50eee0031e76419"><span>盗将行-花粥</span></a>
+                        <a href="./song.html?id=5b1e74f22f301e0039076925"><span>李荣浩</span></a>
+                        <a href="./song.html?id=5b1e6b899f5454003a720717"><span>陈奕迅</span></a>
+                        <a href="./song.html?id=5b1e74f22f301e0039076925"><span>抖音神曲</span></a>
+                        <a href="./song.html?id=5b1aa5ccd50eee0031e76419"><span>RunFree</span></a>
+                        <a href="./song.html?id=5b1aa4b59f54540035fc4d9f"><span>杨朗朗</span></a>
+                    </div>
+                </div>
+                <div class="searchSongList delActive">
+                    <p>搜索“<span></span>”</p>
+                    <a href="#">
+                        <img src="./img/search.png" alt="">
+                        <p></p>                            
+                    </a>
+                </div>
             </li>
         </ol>
     </div>
@@ -195,6 +221,7 @@
 		</script>// 移动端调试
     -->
     <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
+    <script src="//at.alicdn.com/t/font_995683_4cnoskg09px.js"></script>
     <script src="../vendors/av-min.js"></script>
     <script src="./js/initializers/av.js"></script>
     <script src="../vendors/jquery.min.js"></script>

@@ -20,7 +20,7 @@
               n++
               template =`
         <li>
-        <div class="songNumber">${this.makeNumber(n)}<div>
+        <div class="songNumber">${this.makeNumber(n)}</div>
         <div class="songContent">  
         <h3>{{song.name}}</h3>
         <p>
@@ -34,7 +34,7 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
           </svg>
         </a>
-        <div>
+        </div>
       </li>
         `
               let $li = $(template
