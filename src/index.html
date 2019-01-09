@@ -63,7 +63,9 @@
             </section>
         </div>
         <ol class="tab-content noCollapse">
+            <!-- page-1 -->
             <li class="page-1   active">
+                     <!-- 轮播 -->
                     <section class="swiper-container">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
@@ -76,6 +78,7 @@
                             <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
                     </section>
+                 <!-- 推荐歌单 -->
                 <section class="playlists">
                     <h2 class="sectionTitle">推荐歌单</h2>
                     <ol class="songs">
@@ -117,6 +120,8 @@
                         </li>
                     </ol>
                 </section>
+
+                 <!-- 最新音乐 -->
                 <section class="songs">
                     <h2 class="sectionTitle">最新音乐</h2>
                     <ol id="songs" class="list">
@@ -125,6 +130,8 @@
                         </div>
                     </ol>
                 </section>
+
+                <!-- logo -->
                 <section class="art">
                     <div class="logo">
                         <svg class="logosvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 88">
@@ -159,13 +166,15 @@
                         </svg>
                     </div>
                     <div class="link-wrapper">
-                        <a href="#">打开APP，发现更多好音乐 &gt;</a>
+                        <a href="https://m.music.163.com/m/applink/?scheme=orpheus%3A%2F%2Fhome%3Fhome">打开APP，发现更多好音乐 &gt;</a>
                     </div>
                     <div class="copyright">
                         网易公司版权所有©1997-2017 杭州乐读科技有限公司运营
                     </div>
                 </section>
             </li>
+
+            <!-- page-2 -->
             <li id="page-2" class="page-2">
                 <div class="background">
                         <img src="./img/HOT.png" alt="">
@@ -177,7 +186,8 @@
                     <a href="http://m.music.163.com/m/applink/?scheme=orpheus%3A%2F%2Fhome%3Fhome">查看完整榜单 ></a>
                 </div> 
             </li>
-            <li class="page-3">
+            <!-- page-3 -->
+            <li id="page-3" class="page-3">
                 <div class="searchContainer">
                     <img class="searchIcon"src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljOWNhIiBkPSJNMjUuMTgxLDIzLjUzNWwtMS40MTQsMS40MTRsLTcuMzE1LTcuMzE0CgkJQzE0LjcwOSwxOS4xMDcsMTIuNDYsMjAsMTAsMjBDNC40NzcsMjAsMCwxNS41MjMsMCwxMEMwLDQuNDc3LDQuNDc3LDAsMTAsMGM1LjUyMywwLDEwLDQuNDc3LDEwLDEwYzAsMi4zNDItMC44MTEsNC40OS0yLjE2LDYuMTk1CgkJTDI1LjE4MSwyMy41MzV6IE0xMCwyYy00LjQxOCwwLTgsMy41ODItOCw4czMuNTgyLDgsOCw4YzQuNDE4LDAsOC0zLjU4Miw4LThTMTQuNDE4LDIsMTAsMnoiLz48L3N2Zz4=" alt="">
                     <input type="search" placeholder="搜索歌曲、歌手" >
@@ -190,13 +200,13 @@
                             <svg class="icon icon-play" style="width:15px;height:15px;">
                                         <use xlink:href="#icon-custom-hot-copy"></use>
                                     </svg></span></a>
-                        <a href="./song.html?id=5b1e6b899f5454003a720717"><span>离人</span></a>
-                        <a href="./song.html?id=5b1aa5ccd50eee0031e76419"><span>盗将行-花粥</span></a>
-                        <a href="./song.html?id=5b1e74f22f301e0039076925"><span>李荣浩</span></a>
-                        <a href="./song.html?id=5b1e6b899f5454003a720717"><span>陈奕迅</span></a>
-                        <a href="./song.html?id=5b1e74f22f301e0039076925"><span>抖音神曲</span></a>
-                        <a href="./song.html?id=5b1aa5ccd50eee0031e76419"><span>RunFree</span></a>
-                        <a href="./song.html?id=5b1aa4b59f54540035fc4d9f"><span>杨朗朗</span></a>
+                        <a href="./song.html?id=5c3462befb4ffe005fdac3fc"><span>离人</span></a>
+                        <a href="./song.html?id=5c2e2e52fb4ffe005fe71514"><span>李荣浩</span></a>
+                        <a href="./song.html?id=5c3462befb4ffe005fdac3fc"><span>张学友</span></a>
+                        <a href="./song.html?id=5c2e1480fb4ffe005fe58cd1"><span>盗将行-花粥</span></a>
+                        <a href="./song.html?id=5c345a8a0b61600070eab82f"><span>RunFree</span></a>
+                        <a href="./song.html?id=5c25ba67808ca4565ceb6b52"><span>周杰伦</span></a>
+                        <a href="./song.html?id=5c25ba67808ca4565ceb6b52"><span>等你下课</span></a>
                     </div>
                 </div>
                 <div class="searchSongList delActive">
@@ -220,14 +230,14 @@
             }
 		</script>// 移动端调试
     -->
+    <script src="../vendors/jquery.min.js"></script>
     <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
     <script src="//at.alicdn.com/t/font_995683_4cnoskg09px.js"></script>
     <script src="../vendors/av-min.js"></script>
     <script src="./js/initializers/av.js"></script>
-    <script src="../vendors/jquery.min.js"></script>
     <script src="./js/admin/event-hub.js"></script>
-    <script src="./js/index/tabs.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+    <script src="./js/index/tabs.js"></script>
     <script src="./js/index/page-1.js"></script>
     <script src="./js/index/page-2.js"></script>
     <script src="./js/index/page-3.js"></script>

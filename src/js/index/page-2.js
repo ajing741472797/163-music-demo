@@ -48,15 +48,13 @@
         makeNumber(n){
             if(n<10){
                 n=`0${n}`
+                return n
             }
-            console.log(111)
-            return n
         },
         activeNumber(){
             let $songsNumber = $('.hotMusicList').find('.songNumber')
             for(let i=0;i<=2;i++){
                 $songsNumber.eq(i).addClass('active')
-                console.log('jjjjjjjjj')
             }
         },
     }
@@ -90,7 +88,6 @@
                 if(tabName === 'page-2'){
                     this.view.show()
                     this.view.activeNumber()
-                    
                 }else{
                     this.view.hide()
                 }
