@@ -20,7 +20,7 @@
             </div>
             <div class="row">
                 <label>
-                    专辑名
+                    专辑
                 </label>
                 <input name="album" type="text" value="__album__">
             </div>
@@ -38,7 +38,7 @@
             </div>
             <div class="row">
                 <label>
-                    背景图
+                    背景
                 </label>
                 <input name="background" type="text" value="__background__">
             </div>

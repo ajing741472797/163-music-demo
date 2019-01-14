@@ -35,6 +35,8 @@ body{
 .newSong{
     text-align: center;
     padding: 10px;
+    cursor: pointer;
+
 }
 h1{
     margin-left: 30px;
@@ -58,6 +60,7 @@ h1{
     border-bottom: 1px solid #ddd;
     padding: 10px;
     font-weight: 200;
+    cursor: pointer;
     
 }
 .songList > li.active{
