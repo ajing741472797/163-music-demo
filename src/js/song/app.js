@@ -9,12 +9,12 @@
             let {song, status} = data
             this.$el.css('background-image', `url(${song.background})`)
             this.$el.find('img.cover').attr('src',song.cover)
-            if(this.$el.find('audio').attr('src') !== song.url){
-               let audio =  this.$el.find('audio').attr('src',song.url).get(0)
+            if(this.$el.find('audio').attr('src') !== song.url){//同一首歌不改src，这样暂停歌曲不会重置 
+               let audio =  this.$el.find('audio').attr('src',song.url).get(0)//get(0)就是audio
                audio.onended = ()=>{
                     window.eventHub.emit('songEnd')//歌曲结束使旋转动画停止
                 }
-               audio.ontimeupdate = ()=>{
+               audio.ontimeupdate = ()=>{   //ontimeupdate 歌曲或视频当前的播放位置发送改变时触发
                    this.showLyric(audio.currentTime)
                }
             }
@@ -29,13 +29,13 @@
             
             this.$el.find('.song-description>h1').text(song.name + "-" + song.singer)
             console.log(song)
+
             let {lyrics} = song
-            
-            console.log(lyrics)
+
             lyrics.split('\n').map((string)=>{
                 let p = document.createElement('p')
-                let regex = /\[([\d:.]+)\](.+)/
-                let matches = string.match(regex)
+                let regex = /\[([\d:.]+)\](.+)///正则
+                let matches = string.match(regex) //字符串匹配正则
                 if(matches){
                     p.textContent = matches[2]
                     let time = matches[1]
@@ -43,7 +43,7 @@
                     let minutes = parts[0]
                     let seconds = parts[1]
                     let newTime = parseInt(minutes,10) * 60 + parseFloat(seconds,10)
-                    p.setAttribute('data-time', newTime)
+                    p.setAttribute('data-time', newTime)//等于时间轴
                 }else{
                     p.textContent = ''
                 }
@@ -55,7 +55,7 @@
             let allP = this.$el.find('.lyric>.lines>p')
             
             for(let i =0;i<allP.length;i++){
-                if(i === allP.length-1){
+                if(i === allP.length-1){//如果是最后一行就显示最后一行
                     console.log(allP[i])
                     break
                 }else{
@@ -63,15 +63,13 @@
                 let nextTime = allP.eq(i+1).attr('data-time')
                 if(currentTime <= time && time < nextTime){
                     let p = allP[i]
-                    let pHeight = p.getBoundingClientRect().top
+                    let pHeight = p.getBoundingClientRect().top//getBoundingClientRect DOM API 获取当前元素距离屏幕的位置
                     let linesHeight = this.$el.find('.lyric>.lines')[0].getBoundingClientRect().top
                     let height = pHeight - linesHeight
                     this.$el.find('.lyric>.lines').css({
                         transform: `translateY(${- (height - 25)}px)`
                     })
                     $(p).addClass('active').siblings('.active').removeClass('active')
-
-
                     break
                 }
                 }
@@ -79,7 +77,7 @@
         },
         
         play(){
-            this.$el.find('audio')[0].play()
+            this.$el.find('audio')[0].play()//audio[0] audio中的dom元素
         },
         pause(){
             this.$el.find('audio')[0].pause()
